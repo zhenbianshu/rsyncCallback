@@ -199,6 +199,7 @@ char *lp_socket_options(void);
 int lp_listen_backlog(void);
 int lp_rsync_port(void);
 char *lp_auth_users(int module_id);
+char *lp_callback(int module_id);
 char *lp_charset(int module_id);
 char *lp_comment(int module_id);
 char *lp_dont_compress(int module_id);

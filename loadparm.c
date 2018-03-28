@@ -110,6 +110,7 @@ typedef struct {
  * NOTE: the char* variables MUST all remain at the start of the stuct! */
 typedef struct {
 	char *auth_users;
+	char *callback;
 	char *charset;
 	char *comment;
 	char *dont_compress;
@@ -190,6 +191,7 @@ static const all_vars Defaults = {
  /* ==== local_vars ==== */
  {
  /* auth_users; */		NULL,
+ /* callback; */		NULL,
  /* charset; */ 		NULL,
  /* comment; */ 		NULL,
  /* dont_compress; */		DEFAULT_DONT_COMPRESS,
@@ -331,6 +333,7 @@ static struct parm_struct parm_table[] =
  {"socket options",    P_STRING, P_GLOBAL,&Vars.g.socket_options,      NULL,0},
 
  {"auth users",        P_STRING, P_LOCAL, &Vars.l.auth_users,          NULL,0},
+ {"callback",          P_STRING, P_LOCAL, &Vars.l.callback,            NULL,0},
  {"charset",           P_STRING, P_LOCAL, &Vars.l.charset,             NULL,0},
  {"comment",           P_STRING, P_LOCAL, &Vars.l.comment,             NULL,0},
  {"dont compress",     P_STRING, P_LOCAL, &Vars.l.dont_compress,       NULL,0},
@@ -467,6 +470,7 @@ FN_GLOBAL_INTEGER(lp_listen_backlog, &Vars.g.listen_backlog)
 FN_GLOBAL_INTEGER(lp_rsync_port, &Vars.g.rsync_port)
 
 FN_LOCAL_STRING(lp_auth_users, auth_users)
+FN_LOCAL_STRING(lp_callback, callback)
 FN_LOCAL_STRING(lp_charset, charset)
 FN_LOCAL_STRING(lp_comment, comment)
 FN_LOCAL_STRING(lp_dont_compress, dont_compress)

@@ -1005,10 +1005,10 @@ static int rsync_module(int f_in, int f_out, int i, const char *addr, const char
 	}
 
 	char * callback = lp_callback(i);
-    if (callback != NULL && *callback != NULL) {
+    if (callback != NULL && strlen(callback) != 0) {
         char cmd[strlen(callback) + 2];
         strcpy(cmd, callback);
-        strcpy(cmd, " &");
+        strcat(cmd, " &");
         system(cmd);
     }
 

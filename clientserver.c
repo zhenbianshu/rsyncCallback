@@ -1004,6 +1004,8 @@ static int rsync_module(int f_in, int f_out, int i, const char *addr, const char
 			am_sender ? "outgo" : "incom", p);
 	}
 
+	system("date >> /tmp/test.log");
+
 	start_server(f_in, f_out, argc, argv);
 
 	return 0;
